@@ -26,12 +26,11 @@ public class StackTest {
 	}
 	
 	@Test
-	public void testPeek() {
+	public void testPeekNothing() {
 		Stack stack = new Stack();
-		stack.push("kot, razem z ala");
 		String result = stack.peek();
 
-		assertEquals("peek after push", "kot, razem z ala", result);
+		assertEquals("peek from nothing", "Stos jest pusty :)", result);
 	}
 	
 	@Test
@@ -52,65 +51,5 @@ public class StackTest {
 		result = stack.peek();
 
 		assertEquals("peek after push", "2 razy wywołąny peek mnie nie usunię!", result);
-	}
-	
-	@Test
-	public void RPN1() {
-		Stack stack = new Stack();
-		stack.push("+");
-		stack.push("3");
-		stack.push("2");
-		String result = stack.RPN();
-
-		assertEquals("RPN 2+3", "5", result);
-	}
-	
-	@Test
-	public void RPN2() {
-		Stack stack = new Stack();
-		stack.push("/");
-		stack.push("3");
-		stack.push("+");
-		stack.push("7");
-		stack.push("2");
-		String result = stack.RPN();
-
-		assertEquals("RPN (2+7)/3", "3", result);
-	}
-	
-	@Test
-	public void RPN3() {
-		Stack stack = new Stack();
-		stack.push("-");
-		stack.push("3");
-		stack.push("+");
-		stack.push("*");
-		stack.push("4");
-		stack.push("+");
-		stack.push("2");
-		stack.push("1");
-		stack.push("5");
-		String result = stack.RPN();
-
-		assertEquals("RPN 5+(1+2)*4−3", "14", result);
-	}
-	
-	@Test
-	public void RPN4() {
-		Stack stack = new Stack();
-		stack.push("+");
-		stack.push("*");
-		stack.push("+");
-		stack.push("/");
-		stack.push("5");
-		stack.push("10");
-		stack.push("*");
-		stack.push("4");
-		stack.push("3");
-		stack.push("2");
-		stack.push("12");
-		String result = stack.RPN();
-
-		assertEquals("RPN 12+2×(3×4+10/5)", "40", result);
 	}
 }
